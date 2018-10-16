@@ -1,0 +1,19 @@
+<<define "toolbarjs">>
+<script>
+Vue.component('toolbar', {
+    template: "#toolbar",
+    methods: {
+      toggleFilterPanel() {
+        this.$refs.filterPanel.toggle();
+      },
+      toggleMainNav() {
+        console.log("I am clicked");
+        this.$refs.mainNav.toggle();
+      },
+      toggleSearchPanel() {
+        this.$refs.searchPanel.toggle();
+      }
+   }
+});
+</script>
+<<end>>

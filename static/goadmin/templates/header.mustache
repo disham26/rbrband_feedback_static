@@ -1,0 +1,36 @@
+<<define "header">>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />    
+    <link rel="stylesheet" href="<<.StaticHost>>/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<<.StaticHost>>/css/vue-material.css" />
+    <link rel="stylesheet" href="<<.StaticHost>>/css/style.css" />
+    <script src="<<.StaticHost>>/js/vue.js"></script>
+    <script src="<<.StaticHost>>/js/vue-material.js"></script>
+    <script src="<<.StaticHost>>/js/jquery-3.1.1.min.js"></script>
+    <script src="<<.StaticHost>>/js/underscore-min-1-6.js"></script>
+    <script src="<<.StaticHost>>/js/common.js"></script>
+    <script src="<<.StaticHost>>/js/commonwidgets.js"></script>
+    <script src="<<.StaticHost>>/js/taffy-min.js"></script>
+    <script src="<<.StaticHost>>/js/config/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+    <script src="<<.StaticHost>>/js/config/<<.Config>>.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Calibri');
+    </style>
+    <script>
+BF = JSON.parse(<<.Json>>)
+</script>
+  <title>
+    RubberBand
+  </title>
+  <link rel="icon" href="<<.StaticHost>>/images/logo/LOGOv2.png">
+</head>
+<body>
+   
+<md-progress :md-progress=0 id="loading"></md-progress>
+<<end>>
