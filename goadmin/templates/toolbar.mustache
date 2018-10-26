@@ -1,42 +1,62 @@
 <<define "toolbar">>
-<template id="toolbar">
-<md-whiteframe >
-  <div class="toolbarbg">
-       <md-sidenav class="md-left md-fixed main-navigation" ref="mainNav">
-         <sidebar></sidebar>
-       </md-sidenav>
-      <md-toolbar md-theme="toolbar"  style="color:black;">
-  <md-button class="md-button" onclick="window.location.href='/'">
-          <img style="width:100px;"
-             src="<<.StaticHost>>/images/logo/LOGOv2.png">
-  </md-button>  
-      
-      <h2 class="md-title" style="flex: 1">
-        <a class="md-button" href="/"><md-icon class="md-size-1x ">home</md-icon><span> Nav1</span></a>
-      <a class="md-button" href="/"><md-icon class="md-size-1x ">home</md-icon><span> Nav2</span></a>
-     <a class="md-button" href="/"><md-icon class="md-size-1x ">home</md-icon><span> Nav3</span></a>
-     <a class="md-button" href="/"><md-icon class="md-size-1x ">home</md-icon><span> Nav4</span></a>
-      </h2>
+  <template id="toolbar">
+          <div style="position:sticky;position: -webkit-sticky; height: 2em;">
+          <md-toolbar id="toolbarHeader">
 
-    
-      
-      
-       <a href="/signup">New band? Signup</a>
-      
-      <md-button class="md-icon-button">
-        <md-icon>account_circle</md-icon>
-        <md-tooltip md-direction="left" style="font-size:14px;">Signed in as <<.Email>></md-tooltip>
-      </md-button>
-      </md-toolbar>
+            <md-layout md-gutter="10">
+             
+           
+              <md-button  style="margin-left: 15em;"href="/"><h3 class="HOME-HOW-IT-WORKS">Home</h3>
+              </md-button>
 
-      <md-sidenav class="md-right md-fixed search-panel" ref="searchPanel">
-        <md-input-container>
-          <label for="search">Search</label>
-          <md-input type="search" name="search" id="search"></md-input>
-        </md-input-container>
-      </md-sidenav>
- </div>
- </md-whiteframe>
+              <md-button href="/"><h3 class="HOME-HOW-IT-WORKS">How it works</h3>
+              </md-button>
+              
+              <md-button href="/"><h3 class="HOME-HOW-IT-WORKS">Blog</h3>
+              </md-button>     
+
+              <md-button href="/"><h3 class="HOME-HOW-IT-WORKS">Contact Us</h3>
+              </md-button>       
+          
+
+             <md-layout md-flex="15">
+              <md-button class="button" onclick="window.location.href='/'">
+              <img style="display: block;margin-left: auto;margin-right: auto;"
+              src="<<.StaticHost>>/images/logo/LOGOv2.png">
+            </md-button>             
+            </md-layout>
+            <md-layout>
+            </md-layout>
+
+            <md-layout id="loginDiv">
+
+<md-button class="Rounded-Rectangle-8-copy" data-toggle="modal" data-target="#exampleModal" >Login</md-button>
+
+  </md-layout>
+
+            
+              <md-layout id="signupDiv">
+
+<md-button class="Rounded-Rectangle-8" data-toggle="modal" data-target="#exampleModal" >New Band? Signup</md-button>
+
+            </md-layout>
+
+            <md-layout>
+              <md-button id="logout" style="display: none;" href="/" onclick="logout()"><h3 class="HOME-HOW-IT-WORKS">Logout</h3>
+              </md-button>
+
+             
+            <div id="status"></div>
+            </md-layout>
+           
+
+            </md-layout>
+
+
+
+
+ </md-toolbar>
+</div>
 </template>
 <<template "toolbarjs" . >>
-<<end>>
+  <<end>>

@@ -1,3 +1,51 @@
 <<define "widgets">>
- 
+	<template id="rbrband_profile">
+		<<if eq .CurrentPage "profile">>
+
+		<div>
+
+			<<if eq .User.BandsAssociated 1>>
+				Currently, you are associated with 1 band
+				
+			<<else>>
+			<h2>Currently, you are associated with <<.User.BandsAssociated>> bands</h2>
+			<<end>>
+			<h2>Wanna create a new band?</h2>
+			<md-button @click.native="show_form">Create a New Band</md-button>
+			<md-card v-if="show_band_form" md-with-hover class="round">
+				<div class="col-md-12">
+				<form method="POST" action="/profile/<<.User.ID>>" >						
+					<md-input-container>
+						<label>Band Name</label>
+						<md-input type="text" v-model="band_name" name="band_name" required/>
+					</md-input-container>	
+					<md-input-container>
+						<label>City</label>
+						<md-input type="text" v-model="band_location" name="band_location" required />
+					</md-input-container>
+					<md-input-container>
+						<label>Contact Number</label>
+						<md-input type="tel" v-model="band_contact" name="band_contact" required/>
+					</md-input-container>
+					<md-input-container>
+						<label>Charge for a gig (in ₹)</label>
+						<md-input type="number" v-model="band_charge" name="band_charge" required/>
+					</md-input-container>
+					<md-input-container>
+						<label>Band Genre</label>
+						<md-input type="text" v-model="band_genre" name="band_genre" required/>
+					</md-input-container>
+					<md-input-container>
+                            <label>Band Description</label>
+                            <md-textarea md-autogrow type="text" name="band_description" v-model="band_description"/>
+                    </md-input-container>
+                    
+					<md-button @click.native="checkForm" type="submit">Form this Band</md-button>
+					
+				</form>
+			</div>
+			</md-card>
+		</div>
+		<<end>>
+	</template>
 <<end>>

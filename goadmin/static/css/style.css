@@ -18,7 +18,8 @@
 	  background: #e6e6e6;
       }
       body{
-        font-family: Calibri, Basic, Arial;
+        font-family: Calibri, Basic, Arial,Lato;
+        background-color: #fbf8f8; 
      }
       .nav_indexbg{
           background-color:transparent;
@@ -173,3 +174,112 @@ h4.sub-head{
     bottom:0;
     left:150px;
 }
+
+.Rounded-Rectangle-8 {
+  width: 100%;
+  height: 56px;
+  box-shadow: 0px 2px 4.8px 0.3px rgba(0, 0, 0, 0.25);
+  background-color: #b21d21;
+  color: white;
+  font-weight: 900;
+}
+
+.Rounded-Rectangle-8-copy {
+  width: 100%;
+  height: 56px;
+  border: solid 1px #ffffff;
+  color: white;
+  font-weight: 900;
+/*  background-color: #ffffff;
+*/}
+
+.HOME-HOW-IT-WORKS {
+  height: 10px;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #f4f5f9;
+}
+
+.HOME-HOW-IT-WORKS .text-style-1 {
+  font-weight: bold;
+  color: #b21d21;
+}
+
+.Foreground {
+ 
+  object-fit: contain;
+  opacity: 0.7;
+  background-color: #000000;
+}
+
+.Put-Your-Image {
+  
+  object-fit: contain;
+}
+
+.Ellipse-1 {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  background-color: #f4f5f9;
+}
+.Ellipse-1-copy {
+  width: 74px;
+  height: 74px;
+  object-fit: contain;
+  opacity: 0.25;
+  background-color: #ffffff;
+  text-align:center;
+}
+.PROVE-YOUR-WORTH {
+  
+  font-family: Source Sans Pro;
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  text-align: center;
+  color: white;
+}
+.WITH-RUBBERBAND {
+
+  font-family: 'Open Sans';
+  font-size: 72px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 7.2px;
+  text-align: center;
+  color: #fbf8f8;
+}
+.PYW {
+    width:100%;
+    margin-bottom:20em;
+    position: relative;
+    top: 14.5em;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+
+
+.description-text {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  text-align: center;
+  color: #cbc6c0;
+}
+

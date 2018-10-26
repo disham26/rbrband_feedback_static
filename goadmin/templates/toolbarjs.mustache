@@ -2,6 +2,9 @@
 <script>
 Vue.component('toolbar', {
     template: "#toolbar",
+    data: () => ({
+   
+  }),
     methods: {
       toggleFilterPanel() {
         this.$refs.filterPanel.toggle();
@@ -13,7 +16,9 @@ Vue.component('toolbar', {
       toggleSearchPanel() {
         this.$refs.searchPanel.toggle();
       }
+
    }
 });
+
 </script>
 <<end>>

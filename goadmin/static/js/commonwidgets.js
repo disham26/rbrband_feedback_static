@@ -28,50 +28,7 @@ Vue.component('progress-component', {
     }
 });
 
-FeatureName = Vue.component('feature-name', CommonRest.extend({
-    template: '#feature_name',
-    data: function(){
-	return {
-	    //template variables must be defined here
-	    picked:{}
-	};
-    },
 
-    created: function(){
-    	//console.log('created feature-name with this.url: ', this.url);
-    	this.refresh(); //inbuilt
-    },
-
-    methods: {
-    	added: function(data){
-    	    console.log('in added with ', data);
-    	},
-
-    	refreshed: function(data){
-	    this.log('refreshed, count is ', this.count);
-    	    console.log('in refreshed with ', data);
-    	    if(data.success){
-    		this.items = data.data;
-		this.count = data.count;
-    	    }
-    	},
-
-	got: function(data){
-    	    console.log('in show with ', data);
-    	    if(data.success){
-    		this.picked = data.data;
-	    	var chosen_id = data.data.id
-	    	this.edit({id:chosen_id}, {"quantity": 10});
-    	    }
-    	},
-
-    	clicked:function(item){
-    	    this.chosen = item;
-    	    console.log('item is ', item);
-    	    this.get(item); //inbuilt
-    	}
-    }
-}));
 
 Vue.component('card-state', {
     template: '#card_state',
