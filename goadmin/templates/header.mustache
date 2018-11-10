@@ -1,210 +1,50 @@
 <<define "header">>
-  <!DOCTYPE html>
-  <html>
-  <head>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="<<.StaticHost>>/images/logo/LOGOv2.png" type="image/png" sizes="16x16">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>RubberBand</title>
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
  
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!--     <link rel="stylesheet" href="<<.StaticHost>>/css/bootstrap.min.css" />
- -->    <link rel="stylesheet" href="<<.StaticHost>>/css/vue-material.css" />
-    <link rel="stylesheet" href="<<.StaticHost>>/css/style.css" />
-    <script src="<<.StaticHost>>/js/vue.js"></script>
-    <script src="<<.StaticHost>>/js/vue-material.js"></script>
-    <script src="<<.StaticHost>>/js/jquery-3.1.1.min.js"></script>
-    <script src="<<.StaticHost>>/js/underscore-min-1-6.js"></script>
-    <script src="<<.StaticHost>>/js/commonwidgets.js"></script>
-    <script src="<<.StaticHost>>/js/taffy-min.js"></script>
-    <script src="<<.StaticHost>>/js/config/vue.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script src="<<.StaticHost>>/js/config/<<.Config>>.js"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-    @import url('https://fonts.googleapis.com/css?family=Calibri');
-    @import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans|Source+Sans+Pro');
+  <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Source+Sans+Pro" rel="stylesheet">
+  <link rel='stylesheet' id='shoreditch-style-css'  href='<<.StaticHost>>/css/shoreditch.css' type='text/css' media='all' />
+  <style id='dry_awp_theme_style-inline-css' type='text/css'>
+  @media screen and (max-width: 1024px) { .csColumn {   clear: both !important;   float: none !important;   text-align: center !important;    margin-left:  10% !important;   margin-right: 10% !important;   width: 80% !important;  } .csColumnGap {    display: none !important; }}
 </style>
+<link rel="stylesheet" href="<<.StaticHost>>/css/bootstrap.min.css" />
+<link rel="stylesheet" href="<<.StaticHost>>/css/vue-material.css" />
+<link rel="stylesheet" href="<<.StaticHost>>/css/style.css" />
+<style type="text/css">
+.site-title,
+.site-description {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
 
-  </style>
-  <script>
-    BF = JSON.parse(<<.JSON>>)
-  </script>
-  <title>
-    RubberBand
-  </title>
-  <link rel="icon" href="<<.StaticHost>>/images/logo/LOGOv2.png">
+<script type="text/javascript" id="sns_global_scripts_in_head"></script>
+<script src="<<.StaticHost>>/js/config/<<.Config>>.js"></script>
+<script src="<<.StaticHost>>/js/vue.js"></script>
+<script src="<<.StaticHost>>/js/vue-material.js"></script>
+<script src="<<.StaticHost>>/js/config/vue.js"></script>
+<script src="<<.StaticHost>>/js/jquery-3.1.1.min.js"></script>
+<script src="<<.StaticHost>>/js/underscore-min-1-6.js"></script>
+<script src="<<.StaticHost>>/js/commonwidgets.js"></script>
+<script src="<<.StaticHost>>/js/taffy-min.js"></script>
+
+<link rel="stylesheet" href="<<.StaticHost>>/css/style.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
-<body>
+<body style="width:100%;" class="home sticky-header">
 
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '2160853304235441',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v3.1'
-    });
-      
-    FB.AppEvents.logPageView(); 
-      FB.getLoginStatus(function(response) {
-        console.log("getLoginstatus called");
-        //console.log(response.authResponse.userID);
-        if(response.status==='connected'){
-          console.log("Already connected,check if Musician exists");
-          var http = new XMLHttpRequest();
-                var url = "/api/profileCheck/"+response.authResponse.userID;
-                $.getJSON(url, function(data) {
-
-                    if (data.success) {
-                      console.log("This means Musician exists")
-                      console.log("Disappear the FB login button")
-                      document.getElementById("loginDiv").style.display='none';
-                      document.getElementById("signupDiv").style.display='none';
-                      document.getElementById("logout").style.display='block';
-                      if('<<.CurrentPage>>'==='index'){
-                        console.log("This is the index page");
-                        window.location = "/profile/"+response.authResponse.userID;
-                      }
-
-                    }else {
-                      console.log("Musician is logged out, but is connected");
-                        }
-                    });
-
-
-        } else{
-          console.log("Not Connected yet lets make them login");
-          if('<<.CurrentPage>>' != 'index'){
-            window.location="/";
-          }
-        }       
-  });
-      
-  };
-
-  (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1&appId=891327687616015&autoLogAppEvents=1';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
-//This is the same functionality as above, but for the ones who will click on the FB button
-  function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-}
-
-function statusChangeCallback(response){
-
-  console.log(response.status);
-  if(response.status==='connected'){
-          console.log("Already connected,check if Musician exists");
-          var http = new XMLHttpRequest();
-                var url = "/api/profileCheck/"+response.authResponse.userID;
-                $.getJSON(url, function(data) {
-
-                    if (data.success) {
-                      console.log("This means Musician exists")
-                      console.log("Disappear the FB login button")
-                      document.getElementById("loginDiv").style.display='none';
-                      document.getElementById("signupDiv").style.display='none';
-                      document.getElementById("logout").style.display='block';
-                      if('<<.CurrentPage>>'==='index'){
-                        console.log("This is the index page");
-                        window.location = "/profile/"+response.authResponse.userID;
-                      }else{
-                        //Now we have to check if someone else is using somebody elses data
-                        if('<<.UserID>>'===response.authResponse.userID){
-
-                        }else{
-                          window.location = "/profile/"+response.authResponse.userID;
-                        }
-                      }
-
-                    }else {
-                      console.log("Musician is logged out, but is connected");
-                      window.location = "/signup?id="+response.authResponse.userID+"&fbToken="+response.authResponse.accessToken;
-                        }
-                    });
-
-
-        } else{
-          // if('<<.CurrentPage>>'!= 'index'){
-          //   window.location="/";
-          // }
-        }
-}
-
-function logout(){
-  console.log("logout called");
-  FB.getLoginStatus(function(response) {
-    console.log(response.authResponse.userID);
-              var http = new XMLHttpRequest();
-                var url = "/api/profileLogout/"+response.authResponse.userID;
-                $.getJSON(url, function(data) {
-
-                    if (data.success) {
-                      
-                      document.getElementById("loginDiv").style.display='block';
-                      document.getElementById("signupDiv").style.display='block';
-                      document.getElementById("logout").style.display='none';
-                      
-                        console.log("This is the index page");
-                        window.location = "/";
-                      
-
-                    }
-                    });
-
-  });
-
-}
-
-
-</script>   
-
- <script>
-    $('#exampleModal').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var recipient = button.data('whatever') // Extract info from data-* attributes
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-  var modal = $(this)
-  modal.find('.modal-title').text('New message to ' + recipient)
-  modal.find('.modal-body input').val(recipient)
-})
-  </script>  
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Signup or Login using Facebook</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div>
-              
-              <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email"
-              onlogin="checkLoginState();"></div>
-            </div>
-        
-      </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div> -->
-    </div>
-  </div>
-</div>   
 <<end>>

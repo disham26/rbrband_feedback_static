@@ -1,28 +1,14 @@
 <<define "home">>
 <<template "header" .>>
-	 <style> 
-
- .PYW {
-        background-image: url("<<.StaticHost>>/images/assets/background_landing1.png");
-        background-size:     cover;                      /* <------ */
-    background-repeat:   no-repeat;
-    background-position: center center; 
-
-} 
-</style>
 <div id="app" class="md-theme-default">
-  <toolbar></toolbar>
-
-
-
- 
-  
-   <<template "partial_home" .>>
- 
-
+   <toolbar></toolbar>
+   <div class="col-md-1 wd padding">
+     
+   </div>
+   <div class="col-md-9 topper">
+    <<template "partial_home" .>>
+   </div>
 </div>
-
 <<template "footer" .>>
 <<template "common_app" .>>
-</body></html>
 <<end>>
