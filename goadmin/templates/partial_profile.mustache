@@ -1,11 +1,8 @@
 <<define "partial_profile">>
-<div class="col-md-12 topper">
-  <h1>Your profile</h1>
-  <rbrband-profile  :_bandcreator="'<<.UserID>>'">
-</rbrband-profile>
+<div>
+	<<template "profile_toolbar" .>>
   
-
-
-
-</div>
+  <rbrband-profile :_bandcreator="'<<.UserID>>'" :_bandresponse="'<<.BandResponse>>'">
+</rbrband-profile>
+  </div>
 <<end>>

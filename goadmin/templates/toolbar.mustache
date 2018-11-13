@@ -1,62 +1,65 @@
 <<define "toolbar">>
   <template id="toolbar">
-          <div style="position:sticky;position: -webkit-sticky;">
-          <md-toolbar id="toolbarHeader">
+    <div style="position:sticky;position: -webkit-sticky;">
+      <md-toolbar id="toolbarHeader">
 
-            <md-layout md-gutter="10">
-             
-           
-              <md-button  style="margin-left: 15em;"href="/"><h3 class="HOME-HOW-IT-WORKS">Home</h3>
-              </md-button>
+        <md-layout md-gutter="10" class="toolbarMarginLeft">
 
-              <md-button href="/"><h3 class="HOME-HOW-IT-WORKS">How it works</h3>
-              </md-button>
-              
-              <md-button href="/"><h3 class="HOME-HOW-IT-WORKS">Blog</h3>
-              </md-button>     
 
-              <md-button href="/"><h3 class="HOME-HOW-IT-WORKS">Contact Us</h3>
-              </md-button>       
+          <md-button  href="/"><h3 class="HOME-HOW-IT-WORKS">Home</h3>
+          </md-button>
+
+          <md-button href="/"><h3 class="HOME-HOW-IT-WORKS">How it works</h3>
+          </md-button>
+
+          <md-button href="/"><h3 class="HOME-HOW-IT-WORKS">Blog</h3>
+          </md-button>     
+
+          <md-button href="/"><h3 class="HOME-HOW-IT-WORKS">Contact Us</h3>
+          </md-button>       
           
 
-             <md-layout md-flex="15">
-              <md-button class="button" onclick="window.location.href='/'">
+          
+            <md-button style="margin:0;"class="button" onclick="window.location.href='/'">
               <img style="display: block;margin-left: auto;margin-right: auto;"
-              src="<<.StaticHost>>/images/logo/LOGOv2.png">
+              src="<<.StaticHost>>/images/logo/iLogov2.png">
             </md-button>             
-            </md-layout>
+         
+          
+
+          
+
+
+        </md-layout>
+
+        <md-layout class="toolbarMarginRight" style="float:right;">
+
+          <div >
             <md-layout>
-            </md-layout>
-
-            <md-layout id="loginDiv">
-
-<md-button class="Rounded-Rectangle-8-copy" data-toggle="modal" data-target="#exampleModal" >Login</md-button>
-
-  </md-layout>
-
-            
-              <md-layout id="signupDiv">
-
-<md-button class="Rounded-Rectangle-8" data-toggle="modal" data-target="#exampleModal" >New Band? Signup</md-button>
-
-            </md-layout>
-
-            <md-layout>
-              <md-button id="logout" style="display: none;" href="/" onclick="logout()"><h3 class="HOME-HOW-IT-WORKS">Logout</h3>
-              </md-button>
-
-             
+          <md-layout id="loginDiv" class="loginButton" style="display:none">
+            <md-button class="Rounded-Rectangle-8-copy" data-toggle="modal" data-target="#exampleModal" style="width:100%;">Login</md-button>
+          </md-layout>       
+          <md-layout id="signupDiv" class="loginButton" style="display:none;">
+            <md-button class="Rounded-Rectangle-8"  data-toggle="modal" data-target="#exampleModal" style="width:100%;">New Band? Signup</md-button>
+          </md-layout>
+          <md-layout id="logout" class="loginButton" style="display: none;">
+            <md-button  href="/" onclick="logout()" style="width:100%;"><h3 class="HOME-HOW-IT-WORKS">Logout</h3>
+            </md-button>
             <div id="status"></div>
-            </md-layout>
-           
+          </md-layout>
+          <md-layout id="profileDiv" class="loginButton" style="display:none;">
+            <md-button class="Rounded-Rectangle-8" onclick="myProfile()" style="width:100%;">My Profile</md-button>
+          </md-layout>
+        </md-layout>
+        </div>
+        </md-layout>
 
-            </md-layout>
+
+      </md-toolbar>
 
 
+    </div>
 
-
- </md-toolbar>
-</div>
-</template>
-<<template "toolbarjs" . >>
-  <<end>>
+  </template>
+  <<template "toolbarjs" . >>
+    <<end>>

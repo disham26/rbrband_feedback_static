@@ -1,8 +1,13 @@
 var issues_vue = Vue.component('rbrband-profile', {
     template: "#rbrband_profile",
-    props:["_bandcreator"],
+    props:["_bandcreator","_bandresponse"],
     data: function() {
         return {
+            vertical: 'bottom',
+            horizontal: 'center',
+            duration: 4000,
+            rating: 4,
+            band_response:'',
             band_creator:'',
             band_name: '',
             band_genre:'',
@@ -11,9 +16,11 @@ var issues_vue = Vue.component('rbrband-profile', {
             band_contact:'',
             band_charge:'',
             show_band_form:false,
-
+            musician:[],
             musicianid:'',
-
+            bands_associated:[],
+            musician_profile_pic:'',
+            is_bands_associated:false,
             user: [
                 {
 
@@ -34,15 +41,41 @@ var issues_vue = Vue.component('rbrband-profile', {
     created: function() {
         
         //console.log("Created function called");
+        
+        //console.log(this.musician);
         this.band_creator = this._bandcreator;
+        this.band_response = this._bandresponse;
+        this.rating1=4;
+        console.log("band response is :"+this.band_response);
+        
         console.log("Created called, band_creator is :"+this._bandcreator);
+
         this.reset();
         
     },
+   
 
     methods: {
         reset: function() {
-            var _this = this; 
+            var _this = this;
+            var url = "/api/bandsAssociated/" + this._bandcreator;
+            $.getJSON(url, function(data) {
+                    this.musician = data.user;
+                    console.log("wow");
+                    this.musician_profile_pic = this.musician.picture.data.url;
+                    console.log("Profile pic link is :"+ this.musician_profile_pic)
+                    console.log("success is :"+data.success);
+                if (data.success) {
+                    _this.bands_associated = data.data;
+                   _this.is_bands_associated = true;
+
+
+
+                }else {
+                   console.log("No Bands so far");
+
+                }
+            }); 
         },
         show_form: function(){
             console.log("show_form called");
