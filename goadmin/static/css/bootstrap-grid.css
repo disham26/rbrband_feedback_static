@@ -31,11 +31,17 @@ html {
   .container {
     max-width: 540px;
   }
+  .navbar-header{
+    max-width:20%;
+  }
 }
 
 @media (min-width: 768px) {
   .container {
     max-width: 720px;
+  }
+   .navbar-header{
+    max-width:20%;
   }
 }
 
@@ -52,6 +58,7 @@ html {
 }
 
 .container-fluid {
+  background-color: black;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;

@@ -1,8 +1,99 @@
 <<define "partial_profile">>
-<div>
-	<<template "profile_toolbar" .>>
-  
-  <rbrband-profile :_bandcreator="'<<.UserID>>'" :_bandresponse="'<<.BandResponse>>'">
-</rbrband-profile>
-  </div>
-<<end>>
+
+    <!--home Section -->
+    <!--profile section -->
+
+    <section id="featurehome" class="feature sections">
+        <div class="container">
+            <div class="row">
+                <div class="main_feature text-center">
+
+                    <div class="col-sm-4">
+                        <div class="single_feature">
+                            <div class="single_feature_icon">
+                                <img src="<<.User.ProfilePic.Data.URL>>" alt="Avatar">
+                            </div>
+
+                            <h4>Profile</h4>
+                            <div class="separator3"></div>
+                            <p>Hi <<.User.Name>></p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="single_feature">
+                            <div class="single_feature_icon">
+                                <i class="fa fa-star"></i>
+                            </div>
+
+                            <h4>Rating</h4>
+                            <div class="separator3"></div>
+                            <p>Your Rubberband score, <<.User.Rating>></p>
+                            <p>Out of <<.User.GuestsRated>> reviews</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="single_feature">
+                            <div class="single_feature_icon">
+                                <i class="fa fa-music"></i>
+                            </div>
+                            <h4>Bands</h4>
+                            <div class="separator3"></div>
+                            <<if eq .User.BandsAssociated 1>>
+                                <p>Currently, you are associated with 1 band</p>
+
+                                <<else>>
+                                    <p>Currently, you are associated with <<.User.BandsAssociated>> bands</p>
+
+                                    <<end>>
+
+                                        <<range .User.Bands >>
+                                            <a href="/band/<<$.User.ID>>/<<.ID>>" ><p><<.BandName>></p></a>
+                                            <<end>>
+                                             
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End of container -->
+                        </section>
+
+                        <section id="new_band" class="feature sections">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="main_feature text-center">
+                                        <h2>Wanna create a new band?</h2>
+                                        <br>
+                                        <div class="col-md-12" id="bandForm">
+                                            <form method="POST" action="/profile/<<.User.ID>>">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="band_name" id="band_name" placeholder="Band Name" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="band_location" id="banc_location" placeholder="City" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="phone" class="form-control" name="band_contact" id="band_contact" placeholder="Contact Number" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="number" class="form-control" name="band_charge" id="band_charge" placeholder="Charge for a gig (in ₹)" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="band_genre" id="band_genre" placeholder="Genre" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea class="form-control" name="band_description" id="exampleFormControlTextarea1" rows="3" placeholder="Band Description"></textarea>
+                                                </div>
+                                                <button type="submit" class="btn btn-lg m_t_10">Submit</button>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <<end>>

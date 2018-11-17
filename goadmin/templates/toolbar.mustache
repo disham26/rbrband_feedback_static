@@ -1,65 +1,69 @@
 <<define "toolbar">>
   <template id="toolbar">
-    <div style="position:sticky;position: -webkit-sticky;">
-      <md-toolbar id="toolbarHeader">
+    <header id="main_menu" class="header navbar-fixed-top">            
+        <div class="main_menu_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="nave_menu">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#home">
+                                        <img src="<<.StaticHost>>/images/logo/iLogov2.png"/>
+                                    </a>
+                                </div>
 
-        <md-layout md-gutter="10" class="toolbarMarginLeft">
-
-
-          <md-button  href="/"><h3 class="HOME-HOW-IT-WORKS">Home</h3>
-          </md-button>
-
-          <md-button href="/"><h3 class="HOME-HOW-IT-WORKS">How it works</h3>
-          </md-button>
-
-          <md-button href="/"><h3 class="HOME-HOW-IT-WORKS">Blog</h3>
-          </md-button>     
-
-          <md-button href="/"><h3 class="HOME-HOW-IT-WORKS">Contact Us</h3>
-          </md-button>       
-          
-
-          
-            <md-button style="margin:0;"class="button" onclick="window.location.href='/'">
-              <img style="display: block;margin-left: auto;margin-right: auto;"
-              src="<<.StaticHost>>/images/logo/iLogov2.png">
-            </md-button>             
-         
-          
-
-          
+                                <!-- Collect the nav links, forms, and other content for toggling -->
 
 
-        </md-layout>
+                                <span>
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="max-height: 600px">
 
-        <md-layout class="toolbarMarginRight" style="float:right;">
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li><a href="#home">HOME</a></li>
+                                            <li><a href="#history">ABOUT US</a></li>
+                                            <li><a href="#portfolio">PORTFOLIO</a></li>
+                                            <li><a href="#pricing">PRICING</a></li>
+                                            <li><a href="#team">TEAM</a></li>
+                                            <li><a href="#blog">BLOG</a></li>
+                                            <li><a href="#contact">CONTACT</a></li>
+                                            <li id="loginDiv" class="loginButton" >
+                                                <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();"></div>
+                                            </li>
+                                            <li id="signupDiv" class="loginButton" style="display: none;"><a href="" data-toggle="modal" data-target="#exampleModal" class="btn btn-lg m_t_10">NEW BAND? SIGNUP</a></li>
+                                            <li id="logout" class="loginButton" style="display: none;">
+                                                <md-button  href="/" onclick="logout()" style="width:100%;"><h3 class="HOME-HOW-IT-WORKS">Logout</h3>
+                                                </md-button>
+                                                <div id="status"></div>
+                                            </li>
+                                            <li id="profileDiv" class="loginButton" style="display:none;">
+                                                <md-button class="Rounded-Rectangle-8" onclick="myProfile()" style="width:100%;">My Profile</md-button>
 
-          <div >
-            <md-layout>
-          <md-layout id="loginDiv" class="loginButton" style="display:none">
-            <md-button class="Rounded-Rectangle-8-copy" data-toggle="modal" data-target="#exampleModal" style="width:100%;">Login</md-button>
-          </md-layout>       
-          <md-layout id="signupDiv" class="loginButton" style="display:none;">
-            <md-button class="Rounded-Rectangle-8"  data-toggle="modal" data-target="#exampleModal" style="width:100%;">New Band? Signup</md-button>
-          </md-layout>
-          <md-layout id="logout" class="loginButton" style="display: none;">
-            <md-button  href="/" onclick="logout()" style="width:100%;"><h3 class="HOME-HOW-IT-WORKS">Logout</h3>
-            </md-button>
-            <div id="status"></div>
-          </md-layout>
-          <md-layout id="profileDiv" class="loginButton" style="display:none;">
-            <md-button class="Rounded-Rectangle-8" onclick="myProfile()" style="width:100%;">My Profile</md-button>
-          </md-layout>
-        </md-layout>
+                                            </li>
+                                        </ul>
+
+
+                                    </div>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </nav>
+                    </div>  
+                </div>
+
+            </div>
+
         </div>
-        </md-layout>
+    </header> <!--End of header -->
 
-
-      </md-toolbar>
-
-
-    </div>
-
-  </template>
-  <<template "toolbarjs" . >>
+</template>
+<<template "toolbarjs" . >>
     <<end>>
