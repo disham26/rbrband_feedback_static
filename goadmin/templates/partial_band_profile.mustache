@@ -1,0 +1,71 @@
+<<define "partial_band_profile">>
+
+    <!--home Section -->
+    <!--profile section -->
+
+    <section id="featurehome" class="feature sections">
+        <div class="container">
+            <div class="row">
+                <div class="main_feature text-center">
+
+                    <div class="col-sm-4">
+                        <div class="single_feature">
+                            <div class="single_feature_icon">
+                                <img src="<<.User.ProfilePic.Data.URL>>" alt="Avatar">
+                            </div>
+
+                            <h4>Band Page</h4>
+                            <div class="separator3"></div>
+                            <p><<.Band.BandName>></p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="single_feature">
+                            <div class="single_feature_icon">
+                                <i class="fa fa-star"></i>
+                            </div>
+
+                            <h4>Rating</h4>
+                            <div class="separator3"></div>
+                            <p>Your Rubberband score, <<.Band.Rating>></p>
+                            <p>Out of <<.Band.GuestsRated>> reviews</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="single_feature">
+                            <div class="single_feature_icon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <h4>Calendar</h4>
+                            <div class="separator3"></div>
+                           
+                                <p>Manage your gigs here</p>
+
+                                
+                                             
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End of container -->
+                        </section>
+
+                        <section id="new_band" class="feature sections">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="main_feature text-center">
+                                        <h2>Here is your QR Code <<.Band.BandName>></h2>
+                                        <br>
+                                       <div class="single_feature_icon">
+                                <img width="500" height="500" src="data:image/png;base64, <<.Band.QRCode>>" >
+                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <<end>>

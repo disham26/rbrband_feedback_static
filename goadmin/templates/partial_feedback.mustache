@@ -1,0 +1,115 @@
+<<define "partial_feedback">>
+
+    <!--home Section -->
+    <!--profile section -->
+<<if eq .Message "">>
+    <section id="featurehome" class="feature sections">
+        <div class="container">
+            <div class="row">
+                <div class="main_feature text-center">
+
+                    <div class="col-sm-12">
+                        <div class="single_feature">
+                            <<.Message>>
+
+                            <h4>Rate the band</h4>
+                            <div class="separator3"></div>
+                            <p>Please rate <<.Band.BandName>></p>
+                            <div class="col-md-12" id="bandForm">
+                                            <form method="POST" action="/feedback/<<.Band.ID>>">
+                                                <div class="form-group">
+                                                    <input id="input-21b" value="4" type="text" name="band_rating" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="lg"
+                                                    required title="">
+                                                     <div class="clearfix"></div>
+                                                        <hr>
+
+                                                </div>   
+                                                <div class="form-group">
+                                                    <textarea class="form-control" name="band_description" id="exampleFormControlTextarea1" rows="3" placeholder="Special Mention"></textarea>
+                                                </div>
+                                                <button type="submit" class="btn btn-lg m_t_10">Submit</button>
+                                            </form>
+
+                                        </div>
+                        </div>
+                    </div>
+
+                    
+
+                    
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End of container -->
+                        </section>
+    <<else>>
+<p><<.Message>></p>
+    <<end>>
+
+        <script>
+        jQuery(document).ready(function () {
+            // $("#input-21f").rating({
+            //     starCaptions: function (val) {
+            //         if (val < 3) {
+            //             return val;
+            //         } else {
+            //             return 'high';
+            //         }
+            //     },
+            //     starCaptionClasses: function (val) {
+            //         if (val < 3) {
+            //             return 'label label-danger';
+            //         } else {
+            //             return 'label label-success';
+            //         }
+            //     },
+            //     hoverOnClear: false
+            // });
+            var $inp = $('#rating-input');
+
+            $inp.rating({
+                min: 0,
+                max: 5,
+                step: 1,
+                size: 'lg',
+                showClear: false
+            });
+
+            $('#btn-rating-input').on('click', function () {
+                $inp.rating('refresh', {
+                    showClear: true,
+                    disabled: !$inp.attr('disabled')
+                });
+            });
+
+
+            $('.btn-danger').on('click', function () {
+                $("#kartik").rating('destroy');
+            });
+
+            $('.btn-success').on('click', function () {
+                $("#kartik").rating('create');
+            });
+
+            $inp.on('rating.change', function () {
+                alert($('#rating-input').val());
+            });
+
+
+            $('.rb-rating').rating({
+                'showCaption': true,
+                'stars': '3',
+                'min': '0',
+                'max': '3',
+                'step': '1',
+                'size': 'xs',
+                'starCaptions': {0: 'status:nix', 1: 'status:wackelt', 2: 'status:geht', 3: 'status:laeuft'}
+            });
+            $("#input-21c").rating({
+                min: 0, max: 8, step: 0.5, size: "xl", stars: "8"
+            });
+        });
+    </script>                
+
+                        <<end>>

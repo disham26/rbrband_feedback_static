@@ -1,0 +1,337 @@
+      @import url('https://fonts.googleapis.com/css?family=Calibri');
+      .left,.left50{float:left;}
+      .left50,.right50{width:40%;}
+      .right,.right50{float:right;}
+      .left,.right{width:100%;}
+      .center {text-align:center;}
+      .pick .md-list-item  {font-size:10px;}
+      .topper { 
+         padding-top: 5px;
+      }
+      .bottompad{padding-bottom:45px;}
+      .wider { 
+         margin: 0px 45px;
+      }
+      .chotapad{padding:5px;}
+      .align-right{text-align:right;}
+      .toolbarbg{
+	  background: #e6e6e6;
+      }
+      body{
+        font-family: Calibri, Basic, Arial,Lato;
+        background-color: #fbf8f8; 
+     }
+      .nav_indexbg{
+          background-color:transparent;
+      }
+      .wd{
+        width:20.3333%;
+      }
+      .padding{
+        padding-left: 0;
+      }
+      .textcolor{
+        color:#a9a9a9;
+      }
+      .round{
+        border-radius: 5px 5px 5px 5px;
+      }
+.description {
+  font-weight: 300;
+  display: inline-block;
+  padding-bottom: 5px;
+  position: relative;
+}
+.description:before{
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 1px;
+    bottom: 0;
+    left: 25%;
+    border-bottom: 1px solid black;
+}
+.loginButton{
+  margin:0 1em;
+  width:150px;
+}
+.toolbarMarginLeft{
+  margin-left:15em;
+}
+.toolbarMarginRight{
+  margin-right:15em;
+}
+ .aa-input-container {
+  display: inline-block;
+  position: relative;
+}
+.thumbnail{
+  border:none;
+  box-shadow: none;
+  text-align: center;
+}
+.aa-input-search {
+  width: 300px;
+  padding: 12px 28px 12px 12px;
+  border: 2px solid #e4e4e4;
+  border-radius: 4px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-size: 14px;
+  box-sizing: border-box;
+  color: #333;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.aa-input-search::-webkit-search-decoration, .aa-input-search::-webkit-search-cancel-button,
+.aa-input-search::-webkit-search-results-button, .aa-input-search::-webkit-search-results-decoration {
+  display: none;
+}
+.aa-input-search:focus {
+  outline: 0;
+  border-color: red;
+}
+.aa-input-icon {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  fill: #e4e4e4;
+  pointer-events: none;
+}
+.aa-hint {
+  color: #e4e4e4;
+}
+.aa-dropdown-menu {
+  background-color: #fff;
+  border: 2px solid rgba(228, 228, 228, 0.6);
+  border-top-width: 0;
+  width: 300px;
+  margin-top: 10px;
+  font-size: 11px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.aa-suggestion {
+  padding: 6px 12px;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.aa-suggestion:hover, .aa-suggestion.aa-cursor {
+  background-color: rgba(241, 241, 241, 0.35);
+}
+.aa-suggestion > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.aa-suggestion span:first-child {
+  color: #333;
+}
+.aa-suggestion span:last-child {
+  text-transform: uppercase;
+  color: #a9a9a9;
+}
+.aa-suggestion img {
+  max-width: 80px;
+  margin-right: 10px;
+}
+.aa-suggestions-category {
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(228, 228, 228, 0.6);
+  border-top: 2px solid rgba(228, 228, 228, 0.6);
+  padding: 10px;
+  color: #a9a9a9;
+  padding: 6px 12px;
+  text-align: left;
+}
+.aa-suggestion span:first-child em, .aa-suggestion span:last-child em {
+  font-weight: 700;
+  font-style: normal;
+  background-color: rgba(255, 165, 0, 0.5);
+  padding: 2px 0 2px 2px;
+}
+.aa-dropdown-menu > div {
+  display: inline-block; 
+  width: 100%; 
+  vertical-align: top; 
+}
+.aa-empty {
+  padding: 6px 12px;
+}
+.phone_call_head{
+	margin-top:-40px;
+	text-align: center;
+}
+.phone_call_title{
+	font-size: 20px;
+	font-weight: bold;
+}
+h4.sub-head{
+	text-transform: capitalize;
+	font-size: 18px;
+	text-align: center;
+}
+
+.vr {
+    width:10px;
+    background-color:#000;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:150px;
+}
+
+.Rounded-Rectangle-8 {
+ 
+  box-shadow: 0px 2px 4.8px 0.3px rgba(0, 0, 0, 0.25);
+  background-color: #b21d21;
+  color: white;
+  font-weight: 900;
+}
+
+.Rounded-Rectangle-8-2 {
+ 
+  box-shadow: 0px 2px 4.8px 0.3px rgba(0, 0, 0, 0.25);
+  background-color: #b21d21;
+  color: white;
+  font-weight: 900;
+}
+.Rounded-Rectangle-8-2:hover {
+  color: black;
+}
+.cardDiv{
+  width:30%;margin-right:10px;
+  height:30%;
+}
+.Rounded-Rectangle-8-copy {
+ 
+  border: solid 1px #ffffff;
+  color: white;
+  font-weight: 900;
+/*  background-color: #ffffff;
+*/}
+
+.HOME-HOW-IT-WORKS {
+  height: 10px;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #f4f5f9;
+}
+
+.PROFILE-BANNER {
+  height: 10px;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: black;
+}
+
+.HOME-HOW-IT-WORKS .text-style-1 {
+  font-weight: bold;
+  color: #b21d21;
+}
+
+.Foreground {
+ 
+  object-fit: contain;
+  opacity: 0.7;
+  background-color: #000000;
+}
+
+.Put-Your-Image {
+  
+  object-fit: contain;
+}
+
+.Ellipse-1 {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  background-color: #f4f5f9;
+}
+.Ellipse-1-copy {
+  width: 74px;
+  height: 74px;
+  object-fit: contain;
+  opacity: 0.25;
+  background-color: #ffffff;
+  text-align:center;
+}
+.PROVE-YOUR-WORTH {
+  
+  font-family: Source Sans Pro;
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  text-align: center;
+  color: white;
+}
+.WITH-RUBBERBAND {
+
+  font-family: 'Open Sans';
+  font-size: 72px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 7.2px;
+  text-align: center;
+  color: #fbf8f8;
+}
+.PYW {
+    width:100%;
+    position: relative;
+/*    margin-top: 21em;
+    left: 50%;
+    transform: translate(-50%, -30%);*/
+}
+
+
+.description-text {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  text-align: center;
+  color: #cbc6c0;
+}
+

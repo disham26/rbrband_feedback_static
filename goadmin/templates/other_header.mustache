@@ -1,0 +1,259 @@
+<<define "other_header">>
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="<<.StaticHost>>/images/logo/iLogoV2.png" type="image/png" sizes="16x16">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>RubberBand</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!--Google Fonts link-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i" rel="stylesheet">
+    <script src="<<.StaticHost>>/js/jquery-3.1.1.min.js"></script>
+    <script src="<<.StaticHost>>/js/underscore-min-1-6.js"></script>
+    <script src="<<.StaticHost>>/js/vue.js"></script>
+    <script src="<<.StaticHost>>/js/vue-material.js"></script>
+    <script src="<<.StaticHost>>/js/config/vue.js"></script>
+    <link rel="stylesheet" href="<<.StaticHost>>/css/iconfont.css">
+    <link rel="stylesheet" href="<<.StaticHost>>/css/slick/slick.css">
+    <link rel="stylesheet" href="<<.StaticHost>>/css/slick/slick-theme.css">
+    <script src="https://use.fontawesome.com/f82e5b8f78.js"></script>    <link rel="stylesheet" href="<<.StaticHost>>/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="<<.StaticHost>>/css/bootstrap.css">
+    <link rel="stylesheet" href="<<.StaticHost>>/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<<.StaticHost>>/css/magnific-popup.css">
+    <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+    <!--For Plugins external css-->
+    <link rel="stylesheet" href="<<.StaticHost>>/css/plugins.css" />
+
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="<<.StaticHost>>/css/style.css">
+
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="<<.StaticHost>>/css/responsive.css" />
+
+    <script src="<<.StaticHost>>/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+<script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId: '2160853304235441',
+                    cookie: true,
+                    xfbml: true,
+                    version: 'v3.1'
+                });
+
+                FB.AppEvents.logPageView();
+                FB.getLoginStatus(function(response) {
+                    console.log("getLoginstatus called");
+                    //console.log(response.authResponse.userID);
+                    if (response.status === 'connected') {
+                        console.log("Already connected,check if Musician exists");
+                        var http = new XMLHttpRequest();
+                        var url = "/api/profileCheck/" + response.authResponse.userID;
+                        $.getJSON(url, function(data) {
+
+                            if (data.success) {
+                                console.log("This means Musician exists")
+                                console.log("Disappear the FB login button")
+                                document.getElementById("loginDiv").style.display = 'none';
+                                document.getElementById("logoutDiv").style.display = 'block';
+                                if ('<<.CurrentPage>>' === 'index') {
+                                    console.log("This is the index page");
+                                    document.getElementById("profileDiv").style.display = 'block';
+                                }
+
+                            } else {
+                                console.log("Musician is logged out, but is connected");
+                                document.getElementById("loginDiv").style.display = 'block';
+                            }
+                        });
+
+                    } else {
+                        console.log("Not Connected yet lets make them login");
+                        if ('<<.CurrentPage>>' != 'index') {
+                            window.location = "/";
+                        }
+                    }
+                });
+
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1&appId=891327687616015&autoLogAppEvents=1';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            //This is the same functionality as above, but for the ones who will click on the FB button
+            function checkLoginState() {
+                FB.getLoginStatus(function(response) {
+                    statusChangeCallback(response);
+                });
+            }
+
+            function statusChangeCallback(response) {
+
+                console.log(response.status);
+                if (response.status === 'connected') {
+                    console.log("Already connected,check if Musician exists");
+                    var http = new XMLHttpRequest();
+                    var url = "/api/profileCheck/" + response.authResponse.userID;
+                    $.getJSON(url, function(data) {
+
+                        if (data.success) {
+                            console.log("This means Musician exists")
+                            console.log("Disappear the FB login button")
+                            document.getElementById("loginDiv").style.display = 'none';
+                            document.getElementById("logoutDiv").style.display = 'block';
+                            if ('<<.CurrentPage>>' === 'index') {
+                                console.log("This is the index page");
+                                window.location = "/profile/" + response.authResponse.userID;
+                            } else {
+                                //Now we have to check if someone else is using somebody elses data
+                                if ('<<.UserID>>' === response.authResponse.userID) {
+
+                                } else {
+                                    window.location = "/profile/" + response.authResponse.userID;
+                                }
+                            }
+
+                        } else {
+                            console.log("Musician is logged out, but is connected");
+                            window.location = "/signup?id=" + response.authResponse.userID + "&fbToken=" + response.authResponse.accessToken;
+                        }
+                    });
+
+                } else {
+                    // if('<<.CurrentPage>>'!= 'index'){
+                    //   window.location="/";
+                    // }
+                }
+            }
+
+            function logout() {
+                console.log("logout called");
+                FB.getLoginStatus(function(response) {
+                    console.log(response.authResponse.userID);
+                    var http = new XMLHttpRequest();
+                    var url = "/api/profileLogout/" + response.authResponse.userID;
+                    $.getJSON(url, function(data) {
+
+                        if (data.success) {
+
+                            document.getElementById("loginDiv").style.display = 'block';
+                            document.getElementById("logoutDiv").style.display = 'none';
+
+                            console.log("This is the index page");
+                            window.location = "/";
+
+                        }
+                    });
+
+                });
+
+            }
+
+            function myProfile() {
+                console.log("myProfile called");
+                FB.getLoginStatus(function(response) {
+                    console.log(response.authResponse.userID);
+                    var http = new XMLHttpRequest();
+                    window.location = "/profile/" + response.authResponse.userID;
+
+                });
+
+            }
+        </script>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Signup or Login using Facebook</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+
+                            <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();"></div>
+                        </div>
+
+                    </div>
+                    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div> -->
+                </div>
+            </div>
+        </div>
+
+                    
+    <div class='preloader'><div class='loaded'>&nbsp;</div></div>
+    <div class="culmn" style="position:relative;">
+        <header id="main_menu" class="header navbar-fixed-top" style="position: relative;">            
+            <div class="main_menu_bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="nave_menu">
+                            <nav class="navbar navbar-default">
+                                <div class="container-fluid">
+                                    <!-- Brand and toggle get grouped for better mobile display -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <a class="navbar-brand" href="/#home">
+                                            <img src="<<.StaticHost>>/images/logo/iLogoV2.png"/>
+                                        </a>
+                                    </div>
+
+                                    <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="width:unset;">
+
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li><a href="/#home">HOME</a></li>
+                                            <li><a href="/#history">ABOUT US</a></li>
+                                            <li><a href="/#portfolio">PORTFOLIO</a></li>
+                                            <li><a href="/#pricing">PRICING</a></li>
+                                            <li><a href="/#team">TEAM</a></li>
+                                            <li><a href="/#blog">BLOG</a></li>
+                                            <li><a href="/#contact">CONTACT</a></li>
+                                            <li id="loginDiv" style="display: none;"><div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();"></div></li>
+                                            <li id="profileDiv" style="display:none;"><a href="/profile/<<.User.ID>>" class="btn btn-lg m_t_10">Profile</a> </li>
+                                            <li id="logoutDiv" style="display:none;"><a href="/" class="btn btn-lg m_t_10" onclick="logout()">Logout</a> </li>
+                                        </ul>
+
+
+                                    </div>
+
+                                </div>
+                            </nav>
+                        </div>  
+                    </div>
+
+                </div>
+
+            </div>
+        </header> <!--End of header -->
+    
+
+<<end>>
